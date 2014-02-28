@@ -33,7 +33,7 @@ mou() {
 }
 
 at() {
-  open -a /Applications/Atom.app
+  open -a /Applications/Atom.app $1
 }
 
 clearcache() {
