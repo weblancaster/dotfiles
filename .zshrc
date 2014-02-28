@@ -5,19 +5,14 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="random"
+ZSH_THEME="dallas"
+
+# z.sh
+#. `brew --prefix`/etc/profile.d/z.sh
 
 # Functions
 server() {
-    python -m SimpleHTTPServer
-}
-
-clearcache() {
-    sudo rm -rf /var/log/asl/*.asl
-}
-
-c(){
-    clear
+    python -m SimpleHTTPServer $1
 }
 
 nginx_restart() {
@@ -25,10 +20,25 @@ nginx_restart() {
         sudo nginx;
 }
 
-# Aliases
-alias f5="exec $SHELL"
-alias psd="open -a /Applications/Adobe\ Photoshop\ CS6/Adobe\ Photoshop\ CS6.app/"
-alias st="open -a /Applications/Sublime\ Text\ 2.app"
+f5() {
+	exec $SHELL
+}
+
+psd() {
+	open -a /Applications/Adobe\ Photoshop\ CS6/Adobe\ Photoshop\ CS6.app/
+}
+
+mou() {
+	open -a /Applications/Mou.app $1
+}
+
+at() {
+  open -a /Applications/Atom.app
+}
+
+clearcache() {
+	sudo rm /var/log/asl/*.asl
+}
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -49,17 +59,11 @@ alias st="open -a /Applications/Sublime\ Text\ 2.app"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git github svn ruby rails rails3 python terminator sublime node)
-
+plugins=(git github svn ruby rails python terminator sublime node)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export LANG=en_US.UTF-8
-
-eval "$(rbenv init -)"
-
-alias svnadd="svn status | grep ^\? | awk '{ print $2 }' | xargs svn add"
-alias mou="open -a Mou"
-alias sinatra="ruby -rubygems"
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
