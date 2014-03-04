@@ -9,7 +9,7 @@ ZSH_THEME="dallas"
 
 # z.sh
 #. `brew --prefix`/etc/profile.d/z.sh
-echo "This machine us up for.."
+echo "This machine is up for.."
 uptime
 
 # Functions
