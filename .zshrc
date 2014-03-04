@@ -9,6 +9,8 @@ ZSH_THEME="dallas"
 
 # z.sh
 #. `brew --prefix`/etc/profile.d/z.sh
+echo "This machine us up for.."
+uptime
 
 # Functions
 server() {
@@ -21,27 +23,29 @@ nginx_restart() {
 }
 
 f5() {
-	exec $SHELL
+    exec $SHELL
 }
 
 psd() {
-	open -a /Applications/Adobe\ Photoshop\ CS6/Adobe\ Photoshop\ CS6.app/
+    open -a /Applications/Adobe\ Photoshop\ CS6/Adobe\ Photoshop\ CS6.app/
 }
 
 mou() {
-	open -a /Applications/Mou.app $1
+    open -a /Applications/Mou.app $1
 }
 
 at() {
-  open -a /Applications/Atom.app $1
-}
-
-st() {
-  open -a /Applications/Sublime \ Text.app $1
+  open -a /Applications/Atom.app
 }
 
 clearcache() {
-	sudo rm /var/log/asl/*.asl
+    sudo rm /var/log/asl/*.asl
+}
+
+clearfontcache() {
+    atsutil databases -removeUser
+    atsutil server -shutdown
+    atsutil server -ping
 }
 
 # Set to this to use case-sensitive completion
