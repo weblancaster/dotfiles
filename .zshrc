@@ -26,16 +26,8 @@ f5() {
     exec $SHELL
 }
 
-psd() {
-    open -a /Applications/Adobe\ Photoshop\ CS6/Adobe\ Photoshop\ CS6.app/
-}
-
 mou() {
     open -a /Applications/Mou.app $1
-}
-
-at() {
-  open -a /Applications/Atom.app
 }
 
 clearcache() {
@@ -46,6 +38,10 @@ clearfontcache() {
     atsutil databases -removeUser
     atsutil server -shutdown
     atsutil server -ping
+}
+
+st() {
+    open -a /Applications/Sublime \ Text.app
 }
 
 # Set to this to use case-sensitive completion
