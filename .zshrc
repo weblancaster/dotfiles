@@ -9,8 +9,7 @@ ZSH_THEME="dallas"
 
 # z.sh
 #. `brew --prefix`/etc/profile.d/z.sh
-echo "This machine is up for.."
-uptime
+say -v "Trinoids" -i "Hi! your user name is" && id -u -n | say -v "Trinoids" -i && say -v "Trinoids" -i "and this machine is up for" && uptime | say -v "Trinoids" -i
 
 # Functions
 server() {
@@ -26,10 +25,6 @@ f5() {
     exec $SHELL
 }
 
-mou() {
-    open -a /Applications/Mou.app $1
-}
-
 clearcache() {
     sudo rm /var/log/asl/*.asl
 }
@@ -41,7 +36,7 @@ clearfontcache() {
 }
 
 st() {
-    open -a /Applications/Sublime \ Text.app
+    open -a /Applications/Sublime\ Text.app/
 }
 
 # Set to this to use case-sensitive completion
