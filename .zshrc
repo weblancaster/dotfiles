@@ -9,7 +9,8 @@ ZSH_THEME="dallas"
 
 # z.sh
 #. `brew --prefix`/etc/profile.d/z.sh
-say -v "Trinoids" -i "Hi! your user name is" && id -u -n | say -v "Trinoids" -i && say -v "Trinoids" -i "and this machine is up for" && uptime | say -v "Trinoids" -i
+echo "Hi! " && id -u -n 
+echo "This machine is up for" && uptime
 
 # Functions
 server() {
