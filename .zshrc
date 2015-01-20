@@ -7,6 +7,10 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="dallas"
 
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
+[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+
 # z.sh
 #. `brew --prefix`/etc/profile.d/z.sh
 echo "Hi! " && id -u -n 
@@ -38,6 +42,15 @@ clearfontcache() {
 
 st() {
     open -a /Applications/Sublime\ Text.app/
+}
+
+gitignored() {
+	git ls-files -v | grep '^[[:lower:]]'
+}
+
+wifi() {
+	networksetup -setairportpower en0 off
+	networksetup -setairportpower en0 on
 }
 
 # Set to this to use case-sensitive completion
