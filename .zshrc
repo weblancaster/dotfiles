@@ -59,6 +59,11 @@ wifi() {
 	networksetup -setairportpower en0 on
 }
 
+# Docker initialization for mac when installed through the docker toolbox
+dockerInit() {
+	sh /Applications/Docker/Docker\ Quickstart\ Terminal.app/Contents/Resources/Scripts/start.sh
+}
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
