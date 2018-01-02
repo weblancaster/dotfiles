@@ -19,51 +19,6 @@ server() {
     python -m SimpleHTTPServer $1
 }
 
-nginx_start() {
-    sudo nginx;
-}
-
-nginx_stop() {
-    sudo nginx -s stop;
-}
-
-nginx_restart() {
-    sudo nginx -s stop;
-    sudo nginx;
-}
-
-f5() {
-    exec $SHELL
-}
-
-clearcache() {
-    sudo rm /var/log/asl/*.asl
-}
-
-clearfontcache() {
-    atsutil databases -removeUser
-    atsutil server -shutdown
-    atsutil server -ping
-}
-
-st() {
-    open -a /Applications/Sublime\ Text.app/
-}
-
-gitignored() {
-	git ls-files -v | grep '^[[:lower:]]'
-}
-
-wifi() {
-	networksetup -setairportpower en0 off
-	networksetup -setairportpower en0 on
-}
-
-# Docker initialization for mac when installed through the docker toolbox
-dockerInit() {
-	sh /Applications/Docker/Docker\ Quickstart\ Terminal.app/Contents/Resources/Scripts/start.sh
-}
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
