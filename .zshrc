@@ -1,26 +1,35 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/mlancaster/.oh-my-zsh
+export ZSH=/Users/michaellancaster/.oh-my-zsh
+
+echo "Hi! " && id -u -n
+echo "This machine is up for" && uptime
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="dallas"
+ZSH_THEME="awesomepanda"
 
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
-[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+jsonToEnvVar() {
+  for keyval in $(grep -E '": [^\{]' $1 | sed -e 's/: /=/' -e "s/\(\,\)$//"); do
+    echo "export $keyval"
+    eval export $keyval
+  done
+}
 
-echo "Hi! " && id -u -n 
-echo "This machine is up for" && uptime
-
-# Functions
 server() {
     python -m SimpleHTTPServer $1
 }
 
+dockerInit() {
+	sh /Applications/Docker/Docker\ Quickstart\ Terminal.app/Contents/Resources/Scripts/start.sh
+}
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -57,14 +66,11 @@ server() {
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git github svn ruby rails python terminator sublime node)
+plugins=(git)
 
 # User configuration
 
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/bin:/usr/local/sbin:$PATH
-export LANG=en_US.UTF-8
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -91,8 +97,16 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export NVM_DIR="/Users/mlancaster/.nvm"
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOPATH
+export PATH=$PATH:$GOROOT/bin
+
+alias gcloud="$HOME/Downloads/google-cloud-sdk/bin/gcloud"
+
+export NVM_DIR="/Users/michaellancaster/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
