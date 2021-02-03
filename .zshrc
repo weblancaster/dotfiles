@@ -1,8 +1,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/michaellancaster/.oh-my-zsh
 
-echo "Hi! " && id -u -n
-echo "This machine is up for" && uptime
+echo "Hi! Michael"
+echo "Today is:" && date +'%Y-%m-%d'
+echo "Machine is up for:" && uptime
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -106,7 +107,7 @@ export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH
 export PATH=$PATH:$GOROOT/bin
 
-alias gcloud="$HOME/Downloads/google-cloud-sdk/bin/gcloud"
+# alias gcloud="$HOME/Downloads/google-cloud-sdk/bin/gcloud"
 
 export NVM_DIR="/Users/michaellancaster/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
